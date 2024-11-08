@@ -6,13 +6,13 @@
 	display: flex;
 }
 
-.app {
+.todoWrapper {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 }
 
-.contentWrapper {
+.content {
 	display: flex;
 	min-width: 500px;
 	min-height: 500px;
