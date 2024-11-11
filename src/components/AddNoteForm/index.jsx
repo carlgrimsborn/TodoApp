@@ -1,6 +1,7 @@
-import './NoteForm.css';
+import './AddNoteForm.css';
+import PropTypes from 'prop-types';
 
-const NoteForm = () => {
+const AddNoteForm = ({ addNote }) => {
 	const onSubmit = (e) => {
 		console.log(e);
 	};
@@ -27,4 +28,8 @@ const NoteForm = () => {
 	);
 };
 
-export default NoteForm;
+AddNoteForm.propTypes = {
+	addNote: PropTypes.func
+};
+
+export default AddNoteForm;

@@ -1,8 +1,11 @@
 import './SubmitNoteForm.css';
 
 const SubmitNoteForm = () => {
+	const onSubmit = (e) => {
+		console.log(e);
+	};
 	return (
-		<form>
+		<form onSubmit={onSubmit}>
 			<label>
 				Change Status:
 				<select>
@@ -11,7 +14,7 @@ const SubmitNoteForm = () => {
 					<option>Delete</option>
 				</select>
 			</label>
-			<button type='submit' className='submit-note'>
+			<button type='submit' className='submit-note-type'>
 				Submit
 			</button>
 		</form>
