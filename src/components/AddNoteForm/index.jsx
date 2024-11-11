@@ -6,8 +6,7 @@ const AddNoteForm = ({ addNote }) => {
 	const [noteFormAddition, setNoteFormAddition] = useState({
 		title: '',
 		description: '',
-		prioritized: false,
-		id: 0
+		prioritized: false
 	});
 
 	const setFormValue = (e) =>
@@ -25,7 +24,8 @@ const AddNoteForm = ({ addNote }) => {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-		console.log(noteFormAddition);
+		const formToAdd = { ...noteFormAddition, id: Math.random() * 100 };
+		addNote(formToAdd);
 	};
 
 	return (
