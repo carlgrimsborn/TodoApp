@@ -1,7 +1,7 @@
 import '../App.css';
 
 const ViewTodo = () => {
-	return <div className='content'>ViewTodo</div>;
+	return <div className='box'>ViewTodo</div>;
 };
 
 export default ViewTodo;

@@ -1,12 +1,8 @@
 import './App.css';
-import TodoWrapper from './screens/TodoWrapper';
+import Content from './screens/Content';
 
 function App() {
-	return (
-		<>
-			<TodoWrapper />
-		</>
-	);
+	return <Content />;
 }
 
 export default App;

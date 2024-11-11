@@ -6,17 +6,24 @@
 	display: flex;
 }
 
-.todoWrapper {
+.content {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 }
 
-.content {
+.box {
 	display: flex;
 	min-width: 500px;
 	min-height: 500px;
-	border: 1px solid grey;
+	border: 1px solid black;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
+	background-color: #007acc;
+	border-radius: 5px;
+}
+
+.add-title {
+	margin-top: -25px;
 }
