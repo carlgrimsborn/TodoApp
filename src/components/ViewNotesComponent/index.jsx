@@ -8,7 +8,7 @@ const ViewNotesComponent = ({ notes }) => {
 		<div className='box'>
 			<h3 className='box-header'>Note List</h3>
 			<div className='note-scroller'>
-				{notes &&
+				{notes && notes.length > 0 ? (
 					notes.map(({ id, title, description, prioritized }) => (
 						<NoteCard
 							key={id}
@@ -16,7 +16,10 @@ const ViewNotesComponent = ({ notes }) => {
 							description={description}
 							prioritized={prioritized}
 						/>
-					))}
+					))
+				) : (
+					<label>Submitted notes will be shown here</label>
+				)}
 			</div>
 		</div>
 	);

@@ -1,5 +1,5 @@
 .note-scroller {
-	max-height: 800px;
+	max-height: 700px;
 	overflow-y: auto;
 	overflow-x: hidden;
 	padding: 10px;

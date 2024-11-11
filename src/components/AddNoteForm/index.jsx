@@ -1,33 +1,12 @@
-import { useState } from 'react';
 import './AddNoteForm.css';
 import PropTypes from 'prop-types';
 
-const AddNoteForm = ({ addNote }) => {
-	const [noteFormAddition, setNoteFormAddition] = useState({
-		title: '',
-		description: '',
-		prioritized: false
-	});
-
-	const setFormValue = (e) =>
-		setNoteFormAddition({
-			...noteFormAddition,
-			[e.target.name]: e.target.value
-		});
-
-	const setPrioritizedChecked = (e) => {
-		setNoteFormAddition({
-			...noteFormAddition,
-			prioritized: e.target.checked
-		});
-	};
-
-	const onSubmit = (e) => {
-		e.preventDefault();
-		const formToAdd = { ...noteFormAddition, id: Math.random() * 100 };
-		addNote(formToAdd);
-	};
-
+const AddNoteForm = ({
+	noteForm,
+	setFormValue,
+	setPrioritizedChecked,
+	onSubmit
+}) => {
 	return (
 		<div className='form-wrapper'>
 			<form onSubmit={onSubmit} className='todo-form'>
@@ -36,7 +15,7 @@ const AddNoteForm = ({ addNote }) => {
 					<input
 						type='text'
 						name='title'
-						value={noteFormAddition.title}
+						value={noteForm.title}
 						onChange={setFormValue}
 					/>
 				</label>
@@ -44,7 +23,7 @@ const AddNoteForm = ({ addNote }) => {
 					<p>Activity:</p>
 					<textarea
 						name='description'
-						value={noteFormAddition.description}
+						value={noteForm.description}
 						onChange={setFormValue}
 					/>
 				</label>
@@ -53,7 +32,7 @@ const AddNoteForm = ({ addNote }) => {
 					<input
 						type='checkbox'
 						name='prioritized'
-						checked={noteFormAddition.prioritized}
+						checked={noteForm.prioritized}
 						onChange={setPrioritizedChecked}
 					/>
 				</label>
@@ -66,7 +45,14 @@ const AddNoteForm = ({ addNote }) => {
 };
 
 AddNoteForm.propTypes = {
-	addNote: PropTypes.func
+	noteForm: PropTypes.shape({
+		title: PropTypes.string,
+		description: PropTypes.string,
+		prioritized: PropTypes.bool
+	}),
+	setFormValue: PropTypes.func,
+	setPrioritizedChecked: PropTypes.func,
+	onSubmit: PropTypes.func
 };
 
 export default AddNoteForm;
