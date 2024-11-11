@@ -28,7 +28,7 @@ ViewNotes.propTypes = {
 			title: PropTypes.string,
 			description: PropTypes.string,
 			prioritized: PropTypes.bool,
-			id: PropTypes.string
+			id: PropTypes.number
 		})
 	)
 };

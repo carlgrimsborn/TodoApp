@@ -11,7 +11,7 @@ const AddNoteCard = ({ addNote }) => {
 	);
 };
 
-AddNoteCard.PropTypes = {
+AddNoteCard.propTypes = {
 	addNote: PropTypes.func
 };
 
