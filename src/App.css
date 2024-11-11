@@ -18,9 +18,9 @@
 	min-width: 500px;
 	min-height: 500px;
 	max-height: 1200px;
-	padding-top: 40px;
+	padding-top: 20px;
+	justify-content: start;
 	border: 1px solid black;
-	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	background-color: #007acc;
@@ -28,6 +28,5 @@
 }
 
 .box-header {
-	position: absolute;
-	top: 10px;
+	padding-bottom: 10px;
 }

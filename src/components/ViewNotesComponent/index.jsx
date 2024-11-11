@@ -18,7 +18,9 @@ const ViewNotesComponent = ({ notes }) => {
 						/>
 					))
 				) : (
-					<label>Submitted notes will be shown here</label>
+					<label className='empty-label'>
+						Submitted notes will be shown here
+					</label>
 				)}
 			</div>
 		</div>

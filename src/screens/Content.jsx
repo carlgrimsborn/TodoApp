@@ -12,7 +12,6 @@ const Content = () => {
 		setNotes(newNotes);
 	};
 
-	console.log(oldNoteRef);
 	return (
 		<div className='content'>
 			<AddNoteComponent addNote={AddNote} oldNote={oldNoteRef.current} />
