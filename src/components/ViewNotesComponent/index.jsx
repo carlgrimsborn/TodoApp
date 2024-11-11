@@ -1,9 +1,9 @@
 import '../../App.css';
-import './ViewNotes.css';
+import './ViewNotesComponent.css';
 import NoteCard from '../NoteCard';
 import PropTypes from 'prop-types';
 
-const ViewNotes = ({ notes }) => {
+const ViewNotesComponent = ({ notes }) => {
 	return (
 		<div className='box'>
 			<h3 className='box-header'>Note List</h3>
@@ -22,7 +22,7 @@ const ViewNotes = ({ notes }) => {
 	);
 };
 
-ViewNotes.propTypes = {
+ViewNotesComponent.propTypes = {
 	notes: PropTypes.arrayOf(
 		PropTypes.shape({
 			title: PropTypes.string,
@@ -33,4 +33,4 @@ ViewNotes.propTypes = {
 	)
 };
 
-export default ViewNotes;
+export default ViewNotesComponent;

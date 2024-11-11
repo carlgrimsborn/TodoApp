@@ -2,7 +2,7 @@ import AddNoteForm from '../AddNoteForm';
 import '../../App.css';
 import PropTypes from 'prop-types';
 
-const AddNoteCard = ({ addNote }) => {
+const AddNoteComponent = ({ addNote }) => {
 	return (
 		<div className='box'>
 			<h3 className='box-header'>Add Todo Note</h3>
@@ -11,8 +11,8 @@ const AddNoteCard = ({ addNote }) => {
 	);
 };
 
-AddNoteCard.propTypes = {
+AddNoteComponent.propTypes = {
 	addNote: PropTypes.func
 };
 
-export default AddNoteCard;
+export default AddNoteComponent;

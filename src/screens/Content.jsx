@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import AddNoteCard from '../components/AddNoteCard';
-import ViewNotes from '../components/ViewNotes';
+import AddNoteComponent from '../components/AddNoteComponent';
+import ViewNotesComponent from '../components/ViewNotesComponent';
 
 const Content = () => {
 	const [notes, setNotes] = useState([
@@ -17,8 +17,8 @@ const Content = () => {
 	};
 	return (
 		<div className='content'>
-			<AddNoteCard addNote={AddNote} />
-			<ViewNotes notes={notes} />
+			<AddNoteComponent addNote={AddNote} />
+			<ViewNotesComponent notes={notes} />
 		</div>
 	);
 };
