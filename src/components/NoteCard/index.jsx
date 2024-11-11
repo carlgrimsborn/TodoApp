@@ -1,5 +1,5 @@
 import './NoteCard.css';
-import SubmitNoteForm from '../SubmitNoteForm';
+import EditNoteTypeForm from '../EditNoteTypeForm';
 import PropTypes from 'prop-types';
 
 const NoteCard = ({ title, description, prioritized }) => {
@@ -8,7 +8,7 @@ const NoteCard = ({ title, description, prioritized }) => {
 			<h2>{title}</h2>
 			{prioritized && <p className='priority-label'>prioritized</p>}
 			<p className='note-description'>{description}</p>
-			<SubmitNoteForm />
+			<EditNoteTypeForm />
 		</div>
 	);
 };

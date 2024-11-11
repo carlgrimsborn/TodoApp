@@ -1,6 +1,6 @@
-import './SubmitNoteForm.css';
+import './EditNoteTypeForm.css';
 
-const SubmitNoteForm = () => {
+const EditNoteTypeForm = () => {
 	const onSubmit = (e) => {
 		console.log(e);
 	};
@@ -21,4 +21,4 @@ const SubmitNoteForm = () => {
 	);
 };
 
-export default SubmitNoteForm;
+export default EditNoteTypeForm;
