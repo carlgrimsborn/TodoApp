@@ -14,6 +14,7 @@
 
 .box {
 	display: flex;
+	position: relative;
 	min-width: 500px;
 	min-height: 500px;
 	border: 1px solid black;
@@ -24,6 +25,7 @@
 	border-radius: 5px;
 }
 
-.add-title {
-	margin-top: -25px;
+.box-header {
+	position: absolute;
+	top: 10px;
 }

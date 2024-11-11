@@ -1,6 +1,6 @@
-import './TodoForm.css';
+import './NoteForm.css';
 
-const TodoForm = () => {
+const NoteForm = () => {
 	const onSubmit = (e) => {
 		console.log(e);
 	};
@@ -19,10 +19,12 @@ const TodoForm = () => {
 					<p>Urgent:</p>
 					<input type='checkbox' name='urgent' />
 				</label>
-				<button type='submit'>Submit</button>
+				<button type='submit' className='form-submit'>
+					Submit
+				</button>
 			</form>
 		</div>
 	);
 };
 
-export default TodoForm;
+export default NoteForm;

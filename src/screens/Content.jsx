@@ -1,14 +1,14 @@
-import TodoForm from '../components/TodoForm';
-import ViewTodo from './ViewTodo';
+import NoteForm from '../components/NoteForm';
+import ViewNotes from '../components/ViewNotes';
 
 const Content = () => {
 	return (
 		<div className='content'>
 			<div className='box'>
-				<h3 className='add-title'>Add Todo Note</h3>
-				<TodoForm />
+				<h3 className='box-header'>Add Todo Note</h3>
+				<NoteForm />
 			</div>
-			<ViewTodo />
+			<ViewNotes />
 		</div>
 	);
 };
