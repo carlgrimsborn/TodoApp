@@ -17,10 +17,23 @@ const Content = () => {
 		setNotes(newNotes);
 	};
 
+	const EditNoteType = (noteId, noteType) => {
+		if (noteType === 'deleted') {
+			DeleteNote(noteId);
+		} else {
+			const newNotes = notes.map((note) => {
+				if (note.id === noteId) {
+					return { ...note, type: noteType };
+				} else return note;
+			});
+			setNotes(newNotes);
+		}
+	};
+
 	return (
 		<div className='content'>
 			<AddNoteComponent addNote={AddNote} oldNote={oldNoteRef.current} />
-			<ViewNotesComponent notes={notes} onDeleteNote={DeleteNote} />
+			<ViewNotesComponent notes={notes} onEditNoteType={EditNoteType} />
 		</div>
 	);
 };

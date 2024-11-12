@@ -8,8 +8,7 @@ const AddNoteComponent = ({ addNote, oldNote }) => {
 	const initialState = {
 		title: '',
 		description: '',
-		prioritized: false,
-        status: 'todo'
+		type: 'todo'
 	};
 	const [noteForm, setNoteForm] = useState(initialState);
 	const [error, setError] = useState(null);
@@ -27,7 +26,7 @@ const AddNoteComponent = ({ addNote, oldNote }) => {
 	const setPrioritizedChecked = (e) => {
 		setNoteForm({
 			...noteForm,
-			prioritized: e.target.checked
+			type: e.target.checked ? 'prioritized' : 'todo'
 		});
 	};
 
@@ -70,7 +69,7 @@ AddNoteComponent.propTypes = {
 	oldNote: PropTypes.shape({
 		title: PropTypes.string,
 		description: PropTypes.string,
-		prioritized: PropTypes.bool
+        type: PropTypes.string
 	})
 };
 

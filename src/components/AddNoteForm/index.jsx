@@ -8,6 +8,7 @@ const AddNoteForm = ({
 	onSubmit,
 	error
 }) => {
+	const isChecked = noteForm.type === 'prioritized';
 	return (
 		<div className='form-wrapper'>
 			<form onSubmit={onSubmit} className='todo-form'>
@@ -33,7 +34,7 @@ const AddNoteForm = ({
 					<input
 						type='checkbox'
 						name='prioritized'
-						checked={noteForm.prioritized}
+						checked={isChecked}
 						onChange={setPrioritizedChecked}
 					/>
 				</label>
@@ -51,7 +52,7 @@ AddNoteForm.propTypes = {
 	noteForm: PropTypes.shape({
 		title: PropTypes.string,
 		description: PropTypes.string,
-		prioritized: PropTypes.bool
+		type: PropTypes.string
 	}),
 	setFormValue: PropTypes.func,
 	setPrioritizedChecked: PropTypes.func,
