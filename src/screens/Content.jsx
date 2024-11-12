@@ -12,10 +12,15 @@ const Content = () => {
 		setNotes(newNotes);
 	};
 
+	const DeleteNote = (noteId) => {
+		const newNotes = notes.filter((note) => note.id !== noteId);
+		setNotes(newNotes);
+	};
+
 	return (
 		<div className='content'>
 			<AddNoteComponent addNote={AddNote} oldNote={oldNoteRef.current} />
-			<ViewNotesComponent notes={notes} />
+			<ViewNotesComponent notes={notes} onDeleteNote={DeleteNote} />
 		</div>
 	);
 };

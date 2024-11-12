@@ -1,11 +1,24 @@
 import { useRef } from 'react';
 import './EditNoteTypeForm.css';
+import PropTypes from 'prop-types';
 
-const EditNoteTypeForm = () => {
+const EditNoteTypeForm = ({ noteId, onDeleteNote }) => {
 	const selectRef = useRef(null);
 	const onSubmit = (e) => {
 		e.preventDefault();
-		console.log(selectRef.current.value);
+		const selectValue = selectRef.current.value;
+
+		switch (selectValue) {
+			case 'deleted':
+				onDeleteNote(noteId);
+				break;
+			case 'prioritized':
+				console.log('prioritized');
+				break;
+			case 'done':
+				console.log('done');
+				break;
+		}
 	};
 	return (
 		<form onSubmit={onSubmit}>
@@ -22,6 +35,11 @@ const EditNoteTypeForm = () => {
 			</button>
 		</form>
 	);
+};
+
+EditNoteTypeForm.propTypes = {
+	noteId: PropTypes.number,
+	onDeleteNote: PropTypes.func
 };
 
 export default EditNoteTypeForm;
