@@ -8,7 +8,8 @@ const AddNoteComponent = ({ addNote, oldNote }) => {
 	const initialState = {
 		title: '',
 		description: '',
-		prioritized: false
+		prioritized: false,
+        status: 'todo'
 	};
 	const [noteForm, setNoteForm] = useState(initialState);
 	const [error, setError] = useState(null);

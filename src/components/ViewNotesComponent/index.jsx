@@ -4,19 +4,33 @@ import NoteCard from '../NoteCard';
 import PropTypes from 'prop-types';
 
 const ViewNotesComponent = ({ notes }) => {
+	const sortedNotes = notes.sort((a, b) => {
+		if (a.prioritized && !b.prioritized) {
+			return -1;
+		}
+		if (!a.prioritized && b.prioritized) {
+			return 1;
+		}
+		if (a.prioritized && b.prioritized) {
+			return 0;
+		}
+	});
+
 	return (
 		<div className='box'>
 			<h3 className='box-header'>Note List</h3>
 			<div className='note-scroller'>
 				{notes && notes.length > 0 ? (
-					notes.map(({ id, title, description, prioritized }) => (
-						<NoteCard
-							key={id}
-							title={title}
-							description={description}
-							prioritized={prioritized}
-						/>
-					))
+					sortedNotes.map(
+						({ id, title, description, prioritized }) => (
+							<NoteCard
+								key={id}
+								title={title}
+								description={description}
+								prioritized={prioritized}
+							/>
+						)
+					)
 				) : (
 					<label className='empty-label'>
 						Submitted notes will be shown here
