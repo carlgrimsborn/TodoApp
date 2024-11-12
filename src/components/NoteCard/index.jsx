@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const NoteCard = ({ title, description, prioritized }) => {
 	return (
 		<div className='note-card'>
-			<h2>{title}</h2>
+			<h2 className='note-title'>{title}</h2>
 			{prioritized && <p className='priority-label'>prioritized</p>}
 			<p className='note-description'>{description}</p>
 			<EditNoteTypeForm />

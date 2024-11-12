@@ -10,10 +10,18 @@
 	margin: 5px;
 }
 
+.note-title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 10px;
+}
+
 .note-description {
 	overflow-wrap: break-word;
 	margin-left: -30px;
 	margin-right: -30px;
+	margin-bottom: 30px;
 }
 
 .priority-label {
