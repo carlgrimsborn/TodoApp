@@ -1,10 +1,13 @@
 import { useRef, useState } from 'react';
 import AddNoteComponent from '../components/AddNoteComponent';
 import ViewNotesComponent from '../components/ViewNotesComponent';
+import CompletedNotesComponent from '../components/CompletedNotesComponent';
 
 const Content = () => {
 	const [notes, setNotes] = useState([]);
 	const oldNoteRef = useRef(null);
+
+	const completedNotes = notes.filter((note) => note.type === 'done');
 
 	const AddNote = (note) => {
 		const newNotes = [...notes, note];
@@ -34,6 +37,9 @@ const Content = () => {
 		<div className='content'>
 			<AddNoteComponent addNote={AddNote} oldNote={oldNoteRef.current} />
 			<ViewNotesComponent notes={notes} onEditNoteType={EditNoteType} />
+			{completedNotes.length > 0 && (
+				<CompletedNotesComponent notes={completedNotes} />
+			)}
 		</div>
 	);
 };

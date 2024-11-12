@@ -13,7 +13,9 @@ const NoteCard = ({ id, title, description, type, onEditNoteType }) => {
 			<h2 className='note-title'>{title}</h2>
 			{isPrioritized && <p className='priority-label'>prioritized</p>}
 			<p className='note-description'>{description}</p>
-			<EditNoteTypeForm onSubmit={(e, value) => onSubmit(e, value)} />
+			{type !== 'done' && (
+				<EditNoteTypeForm onSubmit={(e, value) => onSubmit(e, value)} />
+			)}
 		</div>
 	);
 };
