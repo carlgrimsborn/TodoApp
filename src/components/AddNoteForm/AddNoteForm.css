@@ -29,3 +29,6 @@
 .form-submit {
 	margin-bottom: 10px;
 }
+.add-note-error {
+	color: rgb(155, 7, 7);
+}

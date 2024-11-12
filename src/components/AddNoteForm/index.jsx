@@ -5,7 +5,8 @@ const AddNoteForm = ({
 	noteForm,
 	setFormValue,
 	setPrioritizedChecked,
-	onSubmit
+	onSubmit,
+	error
 }) => {
 	return (
 		<div className='form-wrapper'>
@@ -36,9 +37,11 @@ const AddNoteForm = ({
 						onChange={setPrioritizedChecked}
 					/>
 				</label>
+
 				<button type='submit' className='form-submit'>
 					Submit
 				</button>
+				{error && <p className='add-note-error'>{error}</p>}
 			</form>
 		</div>
 	);
@@ -52,7 +55,8 @@ AddNoteForm.propTypes = {
 	}),
 	setFormValue: PropTypes.func,
 	setPrioritizedChecked: PropTypes.func,
-	onSubmit: PropTypes.func
+	onSubmit: PropTypes.func,
+	error: PropTypes.string
 };
 
 export default AddNoteForm;

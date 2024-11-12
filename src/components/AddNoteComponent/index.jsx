@@ -11,12 +11,17 @@ const AddNoteComponent = ({ addNote, oldNote }) => {
 		prioritized: false
 	};
 	const [noteForm, setNoteForm] = useState(initialState);
+	const [error, setError] = useState(null);
 
-	const setFormValue = (e) =>
+	const formContainsValues = () =>
+		noteForm.title.length > 0 && noteForm.description.length > 0;
+
+	const setFormValue = (e) => {
 		setNoteForm({
 			...noteForm,
 			[e.target.name]: e.target.value
 		});
+	};
 
 	const setPrioritizedChecked = (e) => {
 		setNoteForm({
@@ -27,9 +32,14 @@ const AddNoteComponent = ({ addNote, oldNote }) => {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-		const formToAdd = { ...noteForm, id: Math.random() * 100 };
-		setNoteForm(initialState);
-		addNote(formToAdd);
+		if (formContainsValues()) {
+			error && setError(null);
+			const formToAdd = { ...noteForm, id: Math.random() * 100 };
+			setNoteForm(initialState);
+			addNote(formToAdd);
+		} else {
+			setError('Error: note is not completed');
+		}
 	};
 
 	const useOldNoteOnClick = () => {
@@ -43,6 +53,7 @@ const AddNoteComponent = ({ addNote, oldNote }) => {
 				onSubmit={onSubmit}
 				setFormValue={setFormValue}
 				setPrioritizedChecked={setPrioritizedChecked}
+				error={error}
 			/>
 			{oldNote && (
 				<button onClick={useOldNoteOnClick} className='old-note-btn'>
