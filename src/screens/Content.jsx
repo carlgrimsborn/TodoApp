@@ -9,6 +9,20 @@ const Content = () => {
 
 	const completedNotes = notes.filter((note) => note.type === 'done');
 
+	const sortedNotes = notes
+		.filter((note) => note.type !== 'done')
+		.sort((a, b) => {
+			if (a.type === 'prioritized' && b.type !== 'prioritized') {
+				return -1;
+			}
+			if (a.type !== 'prioritized' && b.type === 'prioritized') {
+				return 1;
+			}
+			if (a.type === 'prioritized' && b.type === 'prioritized') {
+				return 0;
+			}
+		});
+
 	const AddNote = (note) => {
 		const newNotes = [...notes, note];
 		oldNoteRef.current = note;
@@ -36,7 +50,10 @@ const Content = () => {
 	return (
 		<div className='content'>
 			<AddNoteComponent addNote={AddNote} oldNote={oldNoteRef.current} />
-			<ViewNotesComponent notes={notes} onEditNoteType={EditNoteType} />
+			<ViewNotesComponent
+				notes={sortedNotes}
+				onEditNoteType={EditNoteType}
+			/>
 			{completedNotes.length > 0 && (
 				<CompletedNotesComponent notes={completedNotes} />
 			)}

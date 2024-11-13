@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 
 const NoteCard = ({ id, title, description, type, onEditNoteType }) => {
 	const isPrioritized = type === 'prioritized';
+
 	const onSubmit = (e, value) => {
 		e.preventDefault();
 		onEditNoteType(id, value);
 	};
+
 	return (
 		<div className='note-card'>
 			<h2 className='note-title'>{title}</h2>

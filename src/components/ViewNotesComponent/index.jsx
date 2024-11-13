@@ -4,26 +4,12 @@ import NoteCard from '../NoteCard';
 import PropTypes from 'prop-types';
 
 const ViewNotesComponent = ({ notes, onEditNoteType }) => {
-	const sortedNotes = notes
-		.filter((note) => note.type !== 'done')
-		.sort((a, b) => {
-			if (a.type === 'prioritized' && b.type !== 'prioritized') {
-				return -1;
-			}
-			if (a.type !== 'prioritized' && b.type === 'prioritized') {
-				return 1;
-			}
-			if (a.type === 'prioritized' && b.type === 'prioritized') {
-				return 0;
-			}
-		});
-
 	return (
 		<div className='box'>
 			<h3 className='box-header'>Todo Note List</h3>
 			<div className='note-scroller'>
 				{notes && notes.length > 0 ? (
-					sortedNotes.map(({ id, title, description, type }) => (
+					notes.map(({ id, title, description, type }) => (
 						<NoteCard
 							key={id}
 							id={id}
